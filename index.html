@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TDAH au travail — BUILD RH</title>
+<meta name="description" content="Carrousel BUILD RH · Neuro-inclusion : comprendre les forces, les frictions et les conditions de réussite des personnes TDAH au travail.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#13233F; --navy-2:#1E3350; --teal:#4AA39A; --coral:#FF6B4A; --yellow:#F7C04A;
+  --cream:#F6F4EF; --ink:#13233F; --muted:#6B7280; --pink:#FDE7E1; --mint:#E1F1EE; --sky:#E4ECF7; --butter:#FFF5D9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:#0d1a30;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:16px}
+.deck{width:min(1200px,100%);position:relative}
+.slide{display:none;aspect-ratio:16/9;width:100%;border-radius:14px;overflow:hidden;position:relative;padding:4.2% 4.5% 3.5%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.slide.active{display:flex;flex-direction:column}
+.light{background:var(--cream);color:var(--ink)}
+.dark{background:var(--navy);color:#fff}
+.kicker{font-size:clamp(9px,1vw,12px);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--coral)}
+.dark .kicker{color:#fff}
+h1{font-size:clamp(22px,3.4vw,44px);font-weight:800;letter-spacing:-.02em;margin-top:3.5%}
+.sub{font-size:clamp(11px,1.3vw,17px);color:var(--muted);margin-top:2.5%}
+.dark .sub{color:#cbd5e1}
+.punch{font-size:clamp(13px,1.7vw,22px);font-weight:700;margin-top:auto;margin-bottom:3%}
+.foot{position:absolute;left:4.5%;right:4.5%;bottom:3%;display:flex;justify-content:space-between;font-size:clamp(7px,.75vw,10px);color:var(--muted)}
+.dark .foot{color:#cbd5e1}
+.foot b{font-weight:700}
+.grid{display:grid;gap:2.4%;margin-top:4.5%}
+.card{background:#fff;border-radius:18px;padding:6% 7%;border-left:6px solid var(--c,var(--coral));box-shadow:0 3px 8px rgba(0,0,0,.08)}
+.dark .card{background:var(--navy-2);border-radius:12px}
+.card h3{font-size:clamp(12px,1.5vw,19px);font-weight:700;margin-bottom:.6em}
+.card p{font-size:clamp(10px,1.25vw,16px);line-height:1.4}
+.dark .card p{color:#d6dde8}
+.c1{--c:var(--coral)}.c2{--c:var(--teal)}.c3{--c:var(--yellow)}
+/* cover */
+.cover{flex-direction:row!important;padding:0}
+.cover .left{flex:0 0 72%;padding:3% 4.5%;display:flex;flex-direction:column}
+.cover .right{flex:1;background:var(--teal);position:relative}
+.cover h1{font-size:clamp(30px,5vw,64px);line-height:1.2;margin-top:8%}
+.cover .tag{font-size:clamp(14px,2vw,26px);color:#e2e8f0;margin-top:5%;line-height:1.5}
+.pill{display:inline-block;align-self:flex-start;background:var(--pink);color:var(--navy);font-weight:700;font-size:clamp(8px,1vw,13px);padding:.7em 3em;border-radius:5px;margin-top:6%}
+.cover .small{color:#e2e8f0;font-size:clamp(10px,1.3vw,16px);margin-top:3%}
+.sq1{position:absolute;top:9%;left:15%;width:62%;aspect-ratio:1;background:var(--coral);border-radius:16%;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.sq2{position:absolute;top:18%;left:34%;width:41%;aspect-ratio:1;background:var(--yellow);border-radius:12%}
+.cover svg{position:absolute;inset:0;width:100%;height:100%}
+/* two columns */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3%;margin-top:4%;flex:1;max-height:56%}
+.box{border-radius:28px;padding:5% 5.5%}
+.box h4{font-size:clamp(11px,1.5vw,19px);font-weight:800;margin-bottom:4%;text-transform:uppercase}
+.box li{list-style:none;font-size:clamp(10px,1.35vw,17px);line-height:1.7}
+.dark .box{background:var(--navy-2)}
+.box .note{font-size:clamp(9px,1.2vw,15px);color:#cbd5e1;margin-top:12%;line-height:1.4}
+/* timeline */
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);margin-top:7%;text-align:center}
+.tl::before{content:"";position:absolute;left:0;right:0;top:50%;height:5px;background:var(--navy);transform:translateY(-50%)}
+.tl h3{font-size:clamp(12px,1.6vw,20px);font-weight:700;margin-bottom:28%}
+.dot{width:clamp(22px,4.5vw,60px);aspect-ratio:1;border-radius:50%;margin:0 auto;position:relative;z-index:1;box-shadow:0 3px 6px rgba(0,0,0,.2)}
+.tl p{font-size:clamp(10px,1.3vw,16px);color:var(--muted);margin-top:22%}
+.tags{display:flex;flex-wrap:wrap;gap:2%;margin-top:7%;padding-left:3%}
+.tags span{font-size:clamp(8px,1vw,13px);font-weight:700;padding:.6em 1.8em;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+/* table */
+.cmp{display:grid;grid-template-columns:1fr 1fr;column-gap:7%;row-gap:1.6%;margin-top:3%;padding:0 1.5%}
+.cmp .hd{font-weight:800;font-size:clamp(10px,1.4vw,18px);text-transform:uppercase}
+.cmp .r{font-weight:700;font-size:clamp(9px,1.25vw,16px);padding:1.4% 3%;border-radius:5px;box-shadow:0 2px 3px rgba(0,0,0,.15)}
+/* steps */
+.step{display:flex;gap:9%;align-items:flex-start}
+.step .n{font-size:clamp(13px,1.8vw,22px);font-weight:700}
+/* checks */
+.checks{display:grid;grid-template-columns:1fr 1fr;row-gap:12%;column-gap:5%;margin-top:4.5%;padding-left:1.5%}
+.chk{display:flex;gap:4%;align-items:flex-start}
+.chk i{flex:0 0 auto;width:clamp(22px,3.2vw,46px);aspect-ratio:1;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-style:normal;font-size:clamp(10px,1.2vw,15px);box-shadow:0 3px 6px rgba(0,0,0,.2)}
+.chk h3{font-size:clamp(12px,1.5vw,19px);font-weight:700}
+.chk p{font-size:clamp(10px,1.25vw,16px);margin-top:.4em}
+.banner{background:var(--butter);border-radius:8px;text-align:center;font-weight:700;font-size:clamp(11px,1.45vw,18px);padding:1.6% 2%;margin-top:auto;margin-bottom:3.5%;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+/* final */
+.final h2{font-size:clamp(20px,2.9vw,38px);font-weight:700;line-height:1.4;margin-top:5%}
+.final .q1{color:var(--coral);font-size:clamp(18px,2.7vw,35px);font-weight:700;margin-top:4%}
+.final hr{border:0;height:6px;background:#fff;width:68%;margin:4.5% 0}
+.final .mp{color:#cbd5e1;font-weight:700;font-size:clamp(14px,2vw,26px)}
+.final .q2{font-weight:700;font-size:clamp(16px,2.4vw,31px);margin-top:2.5%;line-height:1.4}
+.final .pill{color:var(--coral);margin-top:4.5%}
+.final .disc{font-size:clamp(7px,.8vw,11px);color:#cbd5e1;margin-top:3%}
+/* nav */
+.nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;color:#fff}
+.nav button{background:var(--navy-2);color:#fff;border:1px solid #2c4467;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer}
+.nav button:hover{background:var(--teal)}
+.dots{display:flex;gap:8px}
+.dots span{width:9px;height:9px;border-radius:50%;background:#3b5275;cursor:pointer}
+.dots span.on{background:var(--coral)}
+@media (max-width:640px){
+  .slide{aspect-ratio:auto;min-height:70vh;padding:20px 16px 36px}
+  .grid,.two,.checks,.cmp{grid-template-columns:1fr!important;row-gap:10px;max-height:none}
+  .tl{grid-template-columns:1fr 1fr;row-gap:20px}.tl::before{display:none}
+  .cover{flex-direction:column!important}.cover .right{min-height:160px}
+  .cover .left{padding:20px 16px}
+  .punch,.banner{margin-top:20px}
+  .foot{position:static;margin-top:16px}
+}
+</style>
+</head>
+<body>
+<main class="deck" aria-roledescription="carrousel">
+
+<!-- 01 -->
+<section class="slide dark cover active" aria-label="Diapositive 1">
+  <div class="left">
+    <div class="kicker">BUILD RH / Neuro-inclusion</div>
+    <h1>TDAH<br>AU TRAVAIL</h1>
+    <p class="tag">Ce n’est pas un défaut de volonté.<br>C’est un autre mode de fonctionnement.</p>
+    <span class="pill">CARROUSEL · RECRUTEMENT &amp; MANAGEMENT</span>
+    <p class="small">Comprendre les forces, les frictions et les conditions de réussite.</p>
+  </div>
+  <div class="right">
+    <div class="sq1"></div><div class="sq2"></div>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="-15" y1="77" x2="78" y2="33" stroke="#fff" stroke-width=".7"/>
+      <line x1="-6" y1="82" x2="88" y2="38" stroke="#fff" stroke-width=".3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="slide light" aria-label="Diapositive 2">
+  <div class="kicker">01 / Comprendre</div>
+  <h1>Le cerveau ne décroche pas au hasard</h1>
+  <p class="sub">Il ne fonctionne pas toujours à la volonté. Il fonctionne souvent à l’intérêt, à l’urgence et au sens.</p>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+    <div class="card c1"><h3>Intérêt</h3><p>Une tâche stimulante peut déclencher une concentration spectaculaire.</p></div>
+    <div class="card c2"><h3>Temps</h3><p>« Dans une semaine » peut sembler abstrait. Le présent prend toute la place.</p></div>
+    <div class="card c3"><h3>Hyperfocus</h3><p>Un sujet passionnant peut absorber toute l’énergie — jusqu’à oublier le reste.</p></div>
+    <div class="card c1"><h3>Énergie</h3><p>Des pics de productivité, puis un besoin réel de récupération.</p></div>
+  </div>
+  <p class="punch" style="margin-bottom:6%">Ce qui est parfois étiqueté « paresse » ou « désorganisation » peut être une difficulté d’activation, de priorisation ou de régulation de l’attention.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>02</b></div>
+</section>
+
+<!-- 03 -->
+<section class="slide dark" aria-label="Diapositive 3">
+  <div class="kicker">02 / Potentiel</div>
+  <h1>Les forces apparaissent quand le cadre est bon</h1>
+  <p class="sub">Pas de super-pouvoir automatique : des capacités qui émergent dans les bonnes conditions.</p>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);column-gap:5%;row-gap:12%">
+    <div class="card c1"><h3>Voir les signaux faibles</h3><p>Repérer un risque avant qu’il ne devienne visible.</p></div>
+    <div class="card c2"><h3>Connecter les idées</h3><p>Faire des liens que personne n’avait encore formulés.</p></div>
+    <div class="card c3"><h3>Aller au fond</h3><p>Chercher la cause, pas seulement le symptôme.</p></div>
+    <div class="card c1"><h3>Créer du lien</h3><p>Lire les besoins, les ambiances et les non-dits.</p></div>
+    <div class="card c2"><h3>Gérer le complexe</h3><p>Rester efficace quand plusieurs variables bougent.</p></div>
+    <div class="card c3"><h3>Accélérer</h3><p>Produire très vite lorsque le sujet fait sens.</p></div>
+  </div>
+  <p class="punch" style="margin-bottom:4%">La question n’est pas : « Peut-il être performant ? »<br>La question est : « Dans quelles conditions sa performance devient-elle accessible ? »</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>03</b></div>
+</section>
+
+<!-- 04 -->
+<section class="slide light" aria-label="Diapositive 4">
+  <div class="kicker">03 / Réalité du quotidien</div>
+  <h1>Les frictions sont souvent invisibles</h1>
+  <p class="sub">Le coût n’est pas toujours visible dans le CV. Il apparaît dans la durée.</p>
+  <div class="two">
+    <div class="box" style="background:var(--pink)"><h4 style="color:var(--coral)">Ce qui frotte</h4><ul>
+      <li>Tâches administratives répétitives</li><li>Objectifs trop lointains</li><li>Consignes floues ou contradictoires</li>
+      <li>Open spaces et surcharge sensorielle</li><li>Réunions longues sans objectif</li><li>Feedbacks vagues ou agressifs</li></ul></div>
+    <div class="box" style="background:var(--sky)"><h4 style="color:var(--teal)">Ce que ça peut produire</h4><ul>
+      <li>Procrastination subie</li><li>Réponses trop rapides ou trop longues</li><li>Difficulté à terminer / formaliser</li>
+      <li>Suradaptation et camouflage</li><li>Fatigue cognitive</li><li>Burnout à force de compenser</li></ul></div>
+  </div>
+  <p class="punch" style="text-align:center">Tenir quelques mois n’est pas la même chose que pouvoir durer.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>04</b></div>
+</section>
+
+<!-- 05 -->
+<section class="slide light" aria-label="Diapositive 5">
+  <div class="kicker">04 / Environnement</div>
+  <h1>Les bons terrains : des conditions avant des métiers</h1>
+  <p class="sub">Un intitulé de poste ne suffit pas. Le contexte d’exécution fait une grande partie de la différence.</p>
+  <div class="tl">
+    <div><h3>Autonomie</h3><div class="dot" style="background:var(--coral)"></div><p>Choisir son chemin</p></div>
+    <div><h3>Stimulation</h3><div class="dot" style="background:var(--teal)"></div><p>Des problèmes à résoudre</p></div>
+    <div><h3>Clarté</h3><div class="dot" style="background:var(--yellow)"></div><p>Des objectifs lisibles</p></div>
+    <div><h3>Sécurité</h3><div class="dot" style="background:var(--coral)"></div><p>Un manager fiable</p></div>
+  </div>
+  <div class="tags">
+    <span style="background:var(--mint);color:var(--teal)">Tech / transformation</span>
+    <span style="background:var(--pink);color:var(--coral)">Conseil / recrutement</span>
+    <span style="background:var(--butter);color:var(--navy)">Innovation / création</span>
+    <span style="background:var(--sky);color:var(--navy)">Projet / urgence</span>
+    <span style="background:var(--mint);color:var(--teal)">Relationnel + résolution</span>
+  </div>
+  <p class="punch" style="text-align:center;margin-bottom:5%">Le bon métier est souvent celui qui permet de bouger, connecter, comprendre et agir — sans micro-management.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>05</b></div>
+</section>
+
+<!-- 06 -->
+<section class="slide dark" aria-label="Diapositive 6">
+  <div class="kicker">05 / Statut</div>
+  <h1>Freelance ou CDI : aucun statut n’est magique</h1>
+  <p class="sub">Le vrai sujet : autonomie, sécurité, variété et qualité du management.</p>
+  <div class="two" style="max-height:60%">
+    <div class="box"><h4 style="color:var(--coral)">Freelance</h4><ul>
+      <li>+ Autonomie et variété</li><li>+ Choix du cadre</li><li>− Incertitude financière</li><li>− Recherche de mission énergivore</li></ul>
+      <p class="note">Peut convenir si la liberté nourrit l’énergie. Peut épuiser si l’incertitude devient permanente.</p></div>
+    <div class="box"><h4 style="color:var(--teal)">CDI</h4><ul>
+      <li>+ Stabilité et projets longs</li><li>+ Soutien RH / collectif</li><li>− Ennui ou procédures</li><li>− Contrôle et reporting</li></ul>
+      <p class="note">Peut convenir si le cadre sécurise. Peut abîmer si l’autonomie disparaît.</p></div>
+  </div>
+  <p class="punch" style="text-align:center">Le statut compte moins que l’environnement dans lequel on doit tenir.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>06</b></div>
+</section>
+
+<!-- 07 -->
+<section class="slide light" aria-label="Diapositive 7">
+  <div class="kicker">06 / Recrutement</div>
+  <h1>On juge encore trop souvent la forme, pas le fond</h1>
+  <p class="sub">Le recrutement élimine parfois les personnes qui ne maîtrisent pas les codes — pas celles qui ne savent pas faire.</p>
+  <div class="cmp">
+    <div class="hd" style="color:var(--coral)">Ce qu’on interprète</div><div class="hd" style="color:var(--teal)">Ce que ça peut aussi être</div>
+    <div class="r" style="background:var(--pink)">Réponse longue</div><div class="r" style="background:var(--mint)">Pensée complexe / peur d’oublier</div>
+    <div class="r" style="background:var(--pink)">Question inattendue</div><div class="r" style="background:var(--mint)">Besoin de comprendre le vrai problème</div>
+    <div class="r" style="background:var(--pink)">Nervosité</div><div class="r" style="background:var(--mint)">Stress de performance</div>
+    <div class="r" style="background:var(--pink)">Parcours non linéaire</div><div class="r" style="background:var(--mint)">Recherche de stimulation et d’apprentissage</div>
+    <div class="r" style="background:var(--pink)">Réserve ou agitation</div><div class="r" style="background:var(--mint)">Autre mode de régulation</div>
+    <div class="r" style="background:var(--pink)">Désaccord</div><div class="r" style="background:var(--mint)">Vigilance ou esprit critique</div>
+  </div>
+  <p class="punch" style="text-align:center;font-size:clamp(11px,1.45vw,19px)">À éviter : chronomètre, questions-pièges, « culture fit » floue, recrutement au feeling, obligation de se dévoiler.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>07</b></div>
+</section>
+
+<!-- 08 -->
+<section class="slide dark" aria-label="Diapositive 8">
+  <div class="kicker">07 / Recruter autrement</div>
+  <h1>Le recrutement zéro bullshit</h1>
+  <p class="sub">Évaluer une capacité à exercer le travail — pas la capacité à jouer un rôle.</p>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);column-gap:5%;row-gap:14%">
+    <div class="card step" style="border:0"><span class="n" style="color:var(--coral)">01</span><div><h3>Décrire le réel</h3><p>Missions, contraintes, priorités, marge de manœuvre.</p></div></div>
+    <div class="card step" style="border:0"><span class="n" style="color:var(--teal)">02</span><div><h3>Préparer l’échange</h3><p>Consignes claires, contexte et temps de préparation.</p></div></div>
+    <div class="card step" style="border:0"><span class="n" style="color:var(--coral)">03</span><div><h3>Tester le travail</h3><p>Mise en situation proche du poste, pas un piège.</p></div></div>
+    <div class="card step" style="border:0"><span class="n" style="color:var(--teal)">04</span><div><h3>Objectiver</h3><p>Grille commune, plusieurs regards, critères explicites.</p></div></div>
+    <div class="card step" style="border:0"><span class="n" style="color:var(--coral)">05</span><div><h3>Laisser prouver</h3><p>Observer les réalisations et la progression.</p></div></div>
+  </div>
+  <p class="punch" style="text-align:center;margin-bottom:6%">On ne recrute pas un diagnostic. On recrute une capacité à contribuer.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>08</b></div>
+</section>
+
+<!-- 09 -->
+<section class="slide light" aria-label="Diapositive 9">
+  <div class="kicker">08 / Management</div>
+  <h1>Manager sans abîmer</h1>
+  <p class="sub">L’exigence sur le travail peut rester élevée. L’exigence de conformité comportementale, non.</p>
+  <div class="checks">
+    <div class="chk"><i>✓</i><div><h3>Clarté</h3><p>Dire ce qui est urgent, prioritaire et attendu.</p></div></div>
+    <div class="chk"><i>✓</i><div><h3>Découpage</h3><p>Transformer les objectifs longs en étapes visibles.</p></div></div>
+    <div class="chk"><i>✓</i><div><h3>Autonomie</h3><p>Laisser choisir le chemin quand le résultat est clair.</p></div></div>
+    <div class="chk"><i>✓</i><div><h3>Feedback</h3><p>Être factuel, direct, contextualisé — jamais humiliant.</p></div></div>
+    <div class="chk"><i>✓</i><div><h3>Récupération</h3><p>Prévoir du calme, du télétravail ou des temps sans sollicitation.</p></div></div>
+    <div class="chk"><i>✓</i><div><h3>Confiance</h3><p>Évaluer les résultats, pas la présence permanente.</p></div></div>
+  </div>
+  <div class="banner">L’adaptation ne doit pas être portée uniquement par la personne concernée. Elle doit être réciproque.</div>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>09</b></div>
+</section>
+
+<!-- 10 -->
+<section class="slide dark final" aria-label="Diapositive 10">
+  <div class="kicker">BUILD RH / Neuro-inclusion</div>
+  <h2>La vraie question<br>n’est pas :</h2>
+  <p class="q1">« Est-ce que cette personne correspond à nos codes ? »</p>
+  <hr>
+  <p class="mp">Mais plutôt :</p>
+  <p class="q2">« Est-ce qu’elle peut réussir dans ce poste, si on évalue réellement ses compétences ? »</p>
+  <span class="pill">À vous de jouer : compétence ou conformité ?</span>
+  <p class="disc">Témoignages recueillis et éditorialisés par BUILD RH. Les expériences varient d’une personne à l’autre. Ce contenu ne constitue pas un diagnostic médical.</p>
+  <div class="foot"><span>Témoignages croisés · contenu non exhaustif · pas un diagnostic</span><b>10</b></div>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navigation du carrousel">
+  <button id="prev" aria-label="Précédent">‹</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" aria-label="Suivant">›</button>
+</nav>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];const dots=document.getElementById('dots');let i=0;
+slides.forEach((_,k)=>{const d=document.createElement('span');d.onclick=()=>go(k);dots.appendChild(d)});
+function go(n){i=(n+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===i));[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));history.replaceState(null,'','#'+(i+1))}
+document.getElementById('prev').onclick=()=>go(i-1);document.getElementById('next').onclick=()=>go(i+1);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
+let x0=null;document.addEventListener('touchstart',e=>x0=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null});
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
